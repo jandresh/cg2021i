@@ -14,14 +14,14 @@ void lineSegment (void)
     int point3 [ ] = {100, 200};
     int point4 [ ] = {150, 250};
     glBegin (GL_LINES);
-    glVertex2i (point1);
-    glVertex2i (point2);
-    glVertex2i (ponit3);
-    glVertex2i (point4);
+    glVertex2iv (point1);
+    glVertex2iv (point2);
+    glVertex2iv (point3);
+    glVertex2iv (point4);
     glEnd ( );
     glFlush ( ); // Process all OpenGL routines as quickly as possible.
 }
-void main (int argc, char** argv)
+int main (int argc, char** argv)
 {
     glutInit (&argc, argv); // Initialize GLUT.
     glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB); // Set display mode.
@@ -31,5 +31,6 @@ void main (int argc, char** argv)
     init ( ); // Execute initialization procedure.
     glutDisplayFunc (lineSegment); // Send graphics to display window.
     glutMainLoop ( ); // Display everything and wait.
+    return 0;
 }
 

@@ -15,7 +15,7 @@ void lineSegment (void)
     int point4 [ ] = {125, 75};
     int point5 [ ] = {100, 100};
     int point6 [ ] = {50, 100};
-    glBegin (GL_TRIANGLE_FAN); // GL_POLYGON, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL TRIANGLE FAN 
+    glBegin (GL_TRIANGLE_STRIP); // GL_POLYGON, GL_TRIANGLES, GL_TRIANGLE_STRIP, GL TRIANGLE FAN 
     glVertex2iv (point1);
     glVertex2iv (point2);
     glVertex2iv (point3);
