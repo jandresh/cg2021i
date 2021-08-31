@@ -1,4 +1,9 @@
-#include <GLUT/glut.h>
+// #include <GLUT/glut.h> // MAC OS(For others, depending on the system in use)
+// Linux mesa installation: https://www.wikihow.com/Install-Mesa-(OpenGL)-on-Linux-Mint
+// Build: g++ ejemplo7.c -lglut -lGL -lGLEW -lGLU -o ejemplo7
+// Execute: ./ejemplo7
+#include <GL/glut.h> // Linux 
+
 GLsizei winWidth = 600, winHeight = 500; // Initial display window size.
 GLint xRaster = 25, yRaster = 150; // Initialize raster position.
 GLubyte label [36] = {'J', 'a', 'n', 'F', 'e', 'b', 'M', 'a', 'r',

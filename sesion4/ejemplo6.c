@@ -1,6 +1,11 @@
-#include <GLUT/glut.h>
+// #include <GLUT/glut.h> // MAC OS(For others, depending on the system in use)
+// Linux mesa installation: https://www.wikihow.com/Install-Mesa-(OpenGL)-on-Linux-Mint
+// Build: g++ ejemplo6.c -lglut -lGL -lGLEW -lGLU -o ejemplo6
+// Execute: ./ejemplo6
+#include <GL/glut.h> // Linux 
 #include <math.h>
 #include <stdlib.h>
+
 const double TWO_PI = 6.2831853;
 /* Initial display-window size. */
 GLsizei winWidth = 400, winHeight = 400;

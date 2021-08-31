@@ -1,132 +1,152 @@
-#include <GLUT/glut.h>
+// #include <GLUT/glut.h> // MAC OS(For others, depending on the system in use)
+// Linux mesa installation: https://www.wikihow.com/Install-Mesa-(OpenGL)-on-Linux-Mint
+// Build: g++ ejemplo2.c -lglut -lGL -lGLEW -lGLU -o ejemplo2
+// Execute: ./ejemplo2
+#include <GL/glut.h> // Linux 
+#include<stdlib.h>
+#include<math.h>
 
-class wcPt3D {
-   public:
-      GLfloat x, y, z;
-};
-typedef GLfloat Matrix4x4 [4][4];
+GLsizei winWidth = 600, winHeight = 600;
+GLint nVerts = 12;//Número de puntos
+GLfloat tx=0, ty=1, tz=3;// Almacena la distancia a traducir
+GLfloat angle = 60;//Ángulo de rotación
+GLfloat scale = 2.0;// relación de escala
+typedef GLfloat M4[4][4];
+M4 matComposite;
+class pt3D { public: GLfloat x, y, z; };
+pt3D verts[] = {
+        { 0.0, 1.0, 0.0 }, { -1.0, -1.0, 1.0 }, { 1.0, -1.0, 1.0 },
+        { 0.0, 1.0, 0.0 }, { 1.0, -1.0, 1.0 }, { 1.0, -1.0, -1.0 },
+        { 0.0, 1.0, 0.0 }, { 1.0, -1.0, -1.0 }, { -1.0, -1.0, -1.0 },
+        { 0.0, 1.0, 0.0 }, { -1.0, -1.0, -1.0 }, { -1.0, -1.0, 1.0 }
+};// Almacena las coordenadas de cada punto del objeto tridimensional, porque hay 4 caras triangulares, por lo que hay 12 puntos, solo configura los vértices para que sean consistentes, cose los triángulos, la cara inferior no está dibujada
+pt3D resultVerts[12];// Almacenar la matriz transformada, las últimas coordenadas de punto
+class color { public: GLfloat r, g, b; };
+color colors[] = {
+        { 1.0, 0.0, 0.0 }, { 0.0, 1.0, 0.0 }, { 0.0, 0.0, 1.0 }, { 1.0, 1.0, 0.0 }
+};// Almacena el color de cada cara
 
-Matrix4x4 matComposite;
-
-/* Construct the 4 x 4 identity matrix. */
-void matrix4x4SetIdentity (Matrix4x4 matIdent4x4)
+void init()
 {
-   GLint row, col;
-
-   for (row = 0; row < 4; row++)
-      for (col = 0; col < 4 ; col++)
-         matIdent4x4 [row][col] = (row == col);
+    glClearColor(1.0, 1.0, 1.0, 0.0);
+    glOrtho(-5.0, 5.0, -5.0, 5.0, -5.0, 5.0);
+    glMatrixMode(GL_PROJECTION);
+}
+void m4SetIdentity(M4 matIdentity4x4)
+{
+    GLint col, row;
+    for (row = 0; row < 4; row++){
+        for (col = 0; col < 4; col++){
+            matIdentity4x4[row][col] = (row == col);
+        }
+    }
+}
+void m4PreMultiply(M4 m1, M4 m2)
+{
+    GLint row, col;
+    M4 matTemp;
+    for (row = 0; row < 4; row++){
+        for (col = 0; col < 4; col++){
+            matTemp[row][col] = m1[row][0] * m2[0][col] + m1[row][1] * m2[1][col] + m1[row][2] * m2[2][col] + m1[row][3] * m2[3][col];
+        }
+    }
+    for (row = 0; row < 4; row++){
+        for (col = 0; col < 4; col++){
+            m2[row][col] = matTemp[row][col];
+        }
+    }
+}
+void translate3D(GLfloat tx, GLfloat ty, GLfloat tz)
+{
+    M4 matTranslate3D;
+    m4SetIdentity(matTranslate3D);
+    matTranslate3D[0][3] = tx;
+    matTranslate3D[1][3] = ty;
+    matTranslate3D[2][3] = tz;
+    m4PreMultiply(matTranslate3D, matComposite);
+}
+void transformVerts3D()
+{
+    GLint k;
+    for (k = 0; k < nVerts; k++){
+        resultVerts[k].x = matComposite[0][0] * verts[k].x + matComposite[0][1] * verts[k].y + matComposite[0][2] * verts[k].z + matComposite[0][3];
+        resultVerts[k].y = matComposite[1][0] * verts[k].x + matComposite[1][1] * verts[k].y + matComposite[1][2] * verts[k].z + matComposite[1][3];
+        resultVerts[k].z = matComposite[2][0] * verts[k].x + matComposite[2][0] * verts[k].y + matComposite[2][2] * verts[k].z + matComposite[2][3];
+    }
 }
 
-/* Premultiply matrix m1 by matrix m2, store result in m2. */
-void matrix4x4PreMultiply (Matrix4x4 m1, Matrix4x4 m2)
+// Dibuja una pirámide triangular con diferentes colores en cada cara
+void draw(pt3D *mat)
 {
-   GLint row, col;
-   Matrix4x4 matTemp;
-
-   for (row = 0; row < 4; row++)
-      for (col = 0; col < 4 ; col++)
-         matTemp [row][col] = m1 [row][0] * m2 [0][col] + m1 [row][1] *
-                            m2 [1][col] + m1 [row][2] * m2 [2][col] +
-                            m1 [row][3] * m2 [3][col];
-   for (row = 0; row < 4; row++)
-      for (col = 0; col < 4; col++)
-         m2 [row][col] = matTemp [row][col];
+    int j;
+    for (int i = 0; i < 4; i++) {
+        glColor3f(colors[i].r, colors[i].g, colors[i].b);
+        for (j = i * 3; j < i * 3 + 3; j++) {
+            glVertex3f(mat[j].x, mat[j].y, mat[j].z);
+        }
+    }
 }
-
-/*  Procedure for generating 3D translation matrix.  */
-void translate3D (GLfloat tx, GLfloat ty, GLfloat tz)
+void displayFunc()
 {
-   Matrix4x4 matTransl3D;
-
-   /*  Initialize translation matrix to identity.  */
-   matrix4x4SetIdentity (matTransl3D);
-
-   matTransl3D [0][3] = tx;
-   matTransl3D [1][3] = ty;
-   matTransl3D [2][3] = tz;
-
-   /*  Concatenate matTransl3D with composite matrix.  */
-   matrix4x4PreMultiply (matTransl3D, matComposite);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);          
+    glRotatef(30, 0.0f, 1.0f, 0.0f); 
+    glBegin(GL_LINES);// Dibuje el eje de coordenadas, que puede omitirse, principalmente para ver los cambios de rotación
+    glColor3f(1.0, 0.0, 0.0);// eje y rojo
+    glVertex3f(0, 0, 0);
+    glVertex3f(0, 4, 0);
+    glColor3f(0.0, 1.0, 0.0);
+    glVertex3f(0, 0, 0);
+    glVertex3f(4, 0, 0);// eje x verde
+    glColor3f(0.0, 0.0, 1.0);
+    glVertex3f(0, 0, 0);
+    glVertex3f(0, 0, 3);// eje z azul
+    glEnd();
+    glBegin(GL_TRIANGLES);                          // dibujar triángulo      
+    draw(verts);
+    glEnd();
+    glLoadIdentity();// No se puede omitir, de lo contrario, la transformación posterior de otros objetos tridimensionales también se producirá en los objetos ya dibujados anteriormente
+    GLfloat scaleBack = 1 / scale;
+    glRotatef(angle, 0.0, 1.0, 0.0);
+    glScalef(1.0, scale, 1.0);
+    //GLfloat tx = 0, ty = 1.0, tz = 3;
+    m4SetIdentity(matComposite);
+    translate3D(tx, ty, tz);
+    transformVerts3D();
+    glBegin(GL_TRIANGLES);     
+    draw(resultVerts);
+    glEnd();
+    glScalef(1.0, scaleBack, 1.0);
+    glLoadIdentity();
+    glFlush();
 }
-
-/*  Procedure for generating a quaternion rotation matrix.  */
-void rotate3D (wcPt3D p1, wcPt3D p2, GLfloat radianAngle)
+/*
+ Configuración del teclado, también se puede mejorar lo siguiente: al girar o desplazarse a un cierto valor, volver al estado original
+ */
+void processSpecialKeys(int key, int x, int y)
 {
-   Matrix4x4 matQuatRot;
-
-   float axisVectLength = sqrt ((p2.x - p1.x) * (p2.x - p1.x) +
-                        (p2.y - p1.y) * (p2.y - p1.y) +
-                        (p2.z - p1.z) * (p2.z - p1.z));
-   float cosA = cosf (radianAngle);
-   float oneC = 1 - cosA;
-   float sinA = sinf (radianAngle);
-   float ux = (p2.x - p1.x) / axisVectLength;
-   float uy = (p2.y - p1.y) / axisVectLength;
-   float uz = (p2.z - p1.z) / axisVectLength;
-
-   /*  Set up translation matrix for moving p1 to origin, 
-    *  and concatenate translation matrix with matComposite.  
-    */
-   translate3D (-p1.x, -p1.y, -p1.z);
-
-   /*  Initialize matQuatRot to identity matrix.  */
-   matrix4x4SetIdentity (matQuatRot);
-
-   matQuatRot [0][0] = ux*ux*oneC + cosA;
-   matQuatRot [0][1] = ux*uy*oneC - uz*sinA;
-   matQuatRot [0][2] = ux*uz*oneC + uy*sinA;
-   matQuatRot [1][0] = uy*ux*oneC + uz*sinA;
-   matQuatRot [1][1] = uy*uy*oneC + cosA;
-   matQuatRot [1][2] = uy*uz*oneC - ux*sinA;
-   matQuatRot [2][0] = uz*ux*oneC - uy*sinA;
-   matQuatRot [2][1] = uz*uy*oneC + ux*sinA;
-   matQuatRot [2][2] = uz*uz*oneC + cosA;
-
-   /*  Concatenate matQuatRot with composite matrix.  */
-   matrix4x4PreMultiply (matQuatRot, matComposite);
-
-   /*  Construct inverse translation matrix for p1 and 
-    *  concatenate with composite matrix.   
-    */
-   translate3D (p1.x, p1.y, p1.z);
+    switch (key){
+    case GLUT_KEY_UP:ty += 0.1;break;
+    case GLUT_KEY_DOWN:ty -= 0.1;break;
+    case GLUT_KEY_LEFT:tz += 0.1;break;
+    case GLUT_KEY_RIGHT:tz -= 0.1;break;
+    case GLUT_KEY_PAGE_UP:scale += 0.1;break;
+    case GLUT_KEY_PAGE_DOWN:scale -= 0.1;break;
+    case GLUT_KEY_INSERT:angle += 10;break;
+    case GLUT_KEY_END:tx = 0; ty = 1; tz = 3; angle = 60; scale = 2; break;// Volver al estado original
+    default:break;
+    }
+    displayFunc();
 }
-
-/*  Procedure for generating a 3D scaling matrix.  */
-void scale3D (Gfloat sx, GLfloat sy, GLfloat sz, wcPt3D fixedPt)
+int main(int argc, char ** argv)
 {
-   Matrix4x4 matScale3D;
-
-   /*  Initialize scaling matrix to identity.  */
-   matrix4x4SetIdentity (matScale3D);
-
-   matScale3D [0][0] = sx;
-   matScale3D [0][3] = (1 - sx) * fixedPt.x;
-   matScale3D [1][1] = sy;
-   matScale3D [1][3] = (1 - sy) * fixedPt.y;
-   matScale3D [2][2] = sz;
-   matScale3D [2][3] = (1 - sz) * fixedPt.z;
-
-   /*  Concatenate matScale3D with composite matrix.  */
-   matrix4x4PreMultiply (matScale3D, matComposite);
-}
-
-void displayFcn (void)
-{
-   /*  Input object description.  */
-   /*  Input translation, rotation, and scaling parameters.  */
-
-   /* Set up 3D viewing-transformation routines. */
-
-   /*  Initialize matComposite to identity matrix:  */
-   matrix4x4SetIdentity (matComposite);
-
-   /*  Invoke transformation routines in the order they
-    *  are to be applied:  
-    */
-   rotate3D (p1, p2, radianAngle);  //  First transformation: Rotate.
-   scale3D (sx, sy, sz, fixedPt);   //  Second transformation: Scale.
-   translate3D (tx, ty, tz);        //  Final transformation: Translate.
-
-   /*  Call routines for displaying transformed objects.  */
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowPosition(50, 50);
+    glutInitWindowSize(winWidth, winHeight);
+    glutCreateWindow("3D");
+    init();
+    glutDisplayFunc(displayFunc);
+    glutSpecialFunc(processSpecialKeys);
+    glutMainLoop();
+    return 0;
 }
