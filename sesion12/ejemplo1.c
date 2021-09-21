@@ -1,6 +1,6 @@
 // #include <GLUT/glut.h> // MAC OS(For others, depending on the system in use)
 // Linux mesa installation: https://www.wikihow.com/Install-Mesa-(OpenGL)-on-Linux-Mint
-// Build: g++ ejemplo2.c -lglut -lGL -lGLEW -lGLU -o ejemplo2
+// Build: g++ ejemplo1.c -lglut -lGL -lGLEW -lGLU -o ejemplo1
 // Execute: ./ejemplo2
 #include <GL/glut.h> // Linux 
 
