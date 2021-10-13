@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/goodfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/End.gd" type="Script" id=2]
+
+[node name="End" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2.0
+margin_top = -2.75
+margin_right = 162.0
+margin_bottom = 141.25
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Felicidades, conseguiste todos los cubos"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

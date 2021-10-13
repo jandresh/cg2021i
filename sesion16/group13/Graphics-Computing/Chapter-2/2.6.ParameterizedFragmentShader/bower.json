@@ -1,0 +1,13 @@
+{
+    "name": "2.6.ParameterizedFragmentShader",
+    "version": "1.0.0",
+    "main": "path/to/main.css",
+    "ignore": [
+        ".jshintrc",
+        "**/*.txt"
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}

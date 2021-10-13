@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>GameWEBGL</title>
+        <link rel ="icon" type ="image/x-icon" href="assets/images/icon.png">
+        <meta name="description" content="Maze 3D for WebGL with Three.js" />
+        <meta name="author" content="Yannick Comte" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" media="screen" href="assets/css/style.css" />
+    </head>
+    <body>
+        <img style="display:none" src="assets/images/preview-laby.png" alt="sharing image" />
+        <div id="canvasContainer">
+            <div id="joypad">
+                <div class="top">
+                    <span class="joykey" id="keyup"><img src="assets/images/pad/kbup.png" /></span>
+                </div>
+                <div class="bottom">
+                    <span class="joykey" id="keyleft"><img src="assets/images/pad/kbleft.png" /></span>
+                    <span class="joykey" id="keydown"><img src="assets/images/pad/kbdown.png" /></span>
+                    <span class="joykey" id="keyright"><img src="assets/images/pad/kbright.png" /></span>
+                </div>
+            </div>
+            <div id="circles">
+                <div class="bottom">
+                   
+                    <span class="circles" id="circle1"><img src="assets/images/circle-no.png" /></span>
+                    <span class="circles" id="circle2"><img src="assets/images/circle-no.png" /></span>
+                    <span class="circles" id="circle3"><img src="assets/images/circle-no.png" /></span>
+                    <span class="circles" id="circle4"><img src="assets/images/circle-no.png" /></span>
+                    <span class="circles" id="circle5"><img src="assets/images/circle-no.png" /></span>
+                </div>
+            </div>
+            <div id="countdown"></div>
+            
+        </div>
+        <audio id="bumpSound">
+            <source src="assets/sound/bat.mp3" />
+            <source src="assets/sound/bat.ogg" />
+        </audio>
+        <audio id="pist">
+            <source src="assets/sound/pista.mp3">
+            <source src="assets/sound/pista.ogg">
+        </audio>
+        
+        <script src="src/alert/alert.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="lib/three.min.js"></script>
+        <script src="src/Engine/Input.js"></script>
+        <script src="src/Engine/Minimap.js"></script>
+        <script src="src/Engine/GameHelper.js"></script>
+        <script src="src/util/countdown.js"></script>
+        <script src="src/Engine/logic.js"></script>
+        
+    </body>
+</html>

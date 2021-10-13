@@ -1,0 +1,296 @@
+<Level>
+       <!-- Level 1 scene file -->
+
+       <!--  *** be careful!! comma (,) is not a supported syntax!!  -->
+       <!--  make sure there are no comma in between attributes -->
+       <!--  e.g., do NOT do: x="20", y="30" -->
+       <!--  notice the "comma" between x and y: Syntax error! -->
+
+       <!-- Camera -->
+       <Camera x="0" y="0" width="100" viewport="0 0 900 900" bound="0" color="0.9 0.9 0.9 1"/>
+
+       <!-- Mini map -->
+       <Camera x="" y="" width="100" viewport="0 500 400 400" bound="2" color="0.3 0.2 0.1 1"/>
+
+       <!-- Pause -->
+       <Camera x="0" y="0" width="89" viewport="250 250 400 400" bound="2" color="0.6 0.5 0.4 1"/>
+
+       <!-- Lights -->
+
+       <!-- Directional light -->
+       <Light type="1" color="0.6 0.6 0.6 1" position="0 0 0" direction="0 0 -1" near="0" far="0" inner="0" outer="0" intensity="1" dropOff="1" castShadow="true"/>
+
+       <!-- Water aurora -->
+       <Light type="2" color="0 0.6 1 1" position="-46 -44 2" direction="0 0 -1" near="2" far="3.6" inner="0.1" outer="2.6" intensity="2" dropOff="1.5" castShadow="true"/>
+
+       <!-- Fire aurora -->
+       <Light type="2" color="0.65 0.04 0.04 1" position="-46 -44 2" direction="0 0 -1" near="2" far="3.6" inner="0.1" outer="2.6" intensity="2" dropOff="1.5" castShadow="true"/>
+
+       <!-- Directional light -->
+       <Light type="1" color="0.6 0.6 0.6 1" position="0 0 0" direction="0.4 0 -1" near="0" far="0" inner="0" outer="0" intensity="0" dropOff="1" castShadow="true"/>
+
+       <!-- Backgrounds -->
+       <Background x="0" y="0" elementPixelPosition="0 900 124 1024" width="100" height="100" parallaxScale="12" type="background" receiveShadow="true" lights="1 2"/>
+
+       <!-- Right walls -->
+       <Wall x="48" y="-48" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-44" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-40" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-36" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-32" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-28" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-24" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-20" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-16" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-12" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-8" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="-4" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="0" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="4" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="8" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="12" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="16" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="20" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="24" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="28" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="32" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="36" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="40" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="44" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="48" y="48" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- Top walls -->
+       <Wall x="-44" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-40" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-36" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-32" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-28" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-24" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-20" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-16" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-12" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-8" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-4" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="0" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="4" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="8" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="12" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="16" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="20" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="24" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="28" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="32" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="36" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="40" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="44" y="48" type="bottom_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- Left walls -->
+       <Wall x="-48" y="-48" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-44" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-40" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-36" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-32" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-28" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-24" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-20" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-16" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-12" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-8" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="-4" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="0" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="4" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="8" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="12" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="16" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="20" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="24" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="28" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="32" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="36" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="40" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="44" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-48" y="48" type="color" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- World Level 1 -->
+
+       <!-- Path 1 -->
+       <Wall x="-44" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-40" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-36" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+
+       <!-- Walls below fire 1 -->
+       <Wall x="-32" y="-49.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+       <Wall x="-28" y="-49.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+
+       <!-- Path 2 -->
+       <Wall x="-24" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+       <Wall x="-20" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-16" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-12" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+
+       <!-- Path 3 block -->
+       <Wall x="-8" y="-44" type="inner_corner_top_left" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-4" y="-44" type="inner_corner_top_right" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-8" y="-48" type="inner_corner_bottom_left" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-4" y="-48" type="inner_corner_bottom_right" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- Walls below water 1-->
+       <Wall x="0" y="-49.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+       <Wall x="4" y="-49.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+
+       <!-- Path 4 -->
+       <Wall x="8" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+       <Wall x="12" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+       <Wall x="16" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="20" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="24" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="28" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="32" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="36" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="40" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="44" y="-48" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- Path 5 -->
+       <Wall x="36" y="-36" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+       <Wall x="32" y="-36" type="top_left_edge" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+
+       <!-- Path 6 -->
+       <Wall x="28" y="-24" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+       <Wall x="24" y="-24" type="toxic_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="20" y="-24" type="top_tile" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+
+       <!-- Walls below fire 2-->
+       <Wall x="12" y="-25.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+       <Wall x="16" y="-25.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+
+       <!-- Path 7 -->
+       <Wall x="8" y="-24" type="top_tile" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+       <Wall x="4" y="-24" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="0" y="-24" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-4" y="-24" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-8" y="-24" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-12" y="-24" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-16" y="-24" type="top_left_edge" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+
+       <!-- Path 8 -->
+       <Wall x="-28" y="-24" type="top_right_edge" weight="4.5" height="3.5" elementPixelPosition="0 256 64 256"/>
+       <Wall x="-32" y="-24" type="top_left_edge" weight="4.5" height="3.5" elementPixelPosition="0 256 64 256"/>
+
+       <!-- Path 9 -->
+       <Wall x="-40" y="-12" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+       <Wall x="-44" y="-12" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- Path 10 -->
+       <Wall x="-32" y="0" type="top_left_edge" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+       <Wall x="-28" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-24" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-20" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-16" y="0" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+
+       <!-- Path 11 -->
+       <Wall x="-8" y="-8" type="top_left_edge" weight="4.5" height="3.5" elementPixelPosition="0 256 64 256"/>
+       <Wall x="-4" y="-8" type="top_tile" weight="4.5" height="3.5" elementPixelPosition="0 256 64 256"/>
+       <Wall x="0" y="-8" type="top_right_edge" weight="4.5" height="3.5" elementPixelPosition="0 256 64 256"/>
+
+       <!-- Path 12 -->
+       <Wall x="8" y="0" type="top_left_edge" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+       <Wall x="12" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="16" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="20" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="24" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="28" y="0" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="32" y="0" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+
+       <!-- Path 13 -->
+       <Wall x="32" y="16" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+       <Wall x="28" y="16" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="24" y="16" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="20" y="16" type="top_tile" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+
+       <!-- Walls below water 2-->
+       <Wall x="16" y="14.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+       <Wall x="12" y="14.5" type="color_medium" weight="4" height="1" elementPixelPosition="0 256 0 128"/>
+
+       <!-- Path 14 -->
+       <Wall x="8" y="16" type="top_tile" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+       <Wall x="4" y="16" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="0" y="16" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-4" y="16" type="top_left_edge" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+
+       <!-- Path 15 -->
+       <Wall x="-40" y="20" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-44" y="20" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- Path 16 -->
+       <Wall x="-32" y="32" type="top_left_edge" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+       <Wall x="-28" y="32" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+
+
+       <!-- Path 18 -->
+       <Wall x="-16" y="32" type="top_left_edge" weight="4" height="4" elementPixelPosition="13 256 0 256"/>
+       <Wall x="-12" y="32" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-8" y="32" type="top_tile" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="-4" y="32" type="top_right_edge" weight="4" height="4" elementPixelPosition="0 242 0 256"/>
+
+       <!-- Path 19 -->
+       <Wall x="8" y="35" type="top_left_edge" weight="4" height="3.5" elementPixelPosition="0 256 64 256"/>
+       <Wall x="12" y="35" type="top_right_edge" weight="4" height="3.5" elementPixelPosition="0 256 64 256"/>
+
+       <!-- Path 20 -->
+       <Wall x="20" y="32" type="top_left_edge" weight="4" height="3.5" elementPixelPosition="0 256 64 256"/>
+       <Wall x="24" y="32" type="top_right_edge" weight="4" height="3.5" elementPixelPosition="0 256 64 256"/>
+
+
+       <!-- Path 21 -->
+       <Wall x="32" y="32" type="inner_corner_bottom_left" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="36" y="32" type="inner_corner_bottom_right" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="32" y="36" type="inner_corner_top_left" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="36" y="36" type="inner_corner_top_right" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="40" y="32" type="inner_corner_bottom_left" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="44" y="32" type="inner_corner_bottom_right" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="40" y="36" type="inner_corner_top_left" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+       <Wall x="44" y="36" type="inner_corner_top_right" weight="4" height="4" elementPixelPosition="0 256 0 256"/>
+
+       <!-- Platforms -->
+       <Platform x="40" y="14.4" type="platform" velocity="0 1 0" movementRange="12.7"/>
+       <Platform x="-32" y="16" type="platform" velocity="-1 0 0" movementRange="21"/>
+
+       <!-- Doors -->
+       <Door x="35" y="42" type="door_water" playerCollision="0" weight="8" height="8"/>
+       <Door x="43" y="42" type="door_fire" playerCollision="1" weight="8" height="8"/>
+
+       <!-- Push buttons -->
+       <PushButton x="16" y="3" type="push_button" weight="4" height="2" platform="0"/>
+       <PushButton x="28" y="19" type="push_button" weight="4" height="2" platform="0"/>
+       <PushButton x="0" y="19" type="push_button" weight="4" height="2" platform="1"/>
+       <PushButton x="-30" y="35" type="push_button" weight="4" height="2" platform="1"/>
+
+       <!-- Waves -->
+       <Wave x="-30" y="-48" type="wave_fire" weight="8" height="2" playerCollision="0"/>
+       <Wave x="2" y="-48" type="wave_water" weight="8" height="2" playerCollision="1"/>
+       <Wave x="14" y="-24" type="wave_fire" weight="8" height="2" playerCollision="0"/>
+       <Wave x="14" y="16" type="wave_water" weight="8" height="2" playerCollision="1"/>
+
+       <!-- Diamonds -->
+       <Diamond x="-30" y="-36" weight="4" height="4" playerCollision="0" type="diamond_for_water"/>
+       <Diamond x="2" y="-36" weight="4" height="4" playerCollision="1" type="diamond_for_fire"/>
+       <Diamond x="14" y="-14" weight="4" height="4" playerCollision="0" type="diamond_for_water"/>
+       <Diamond x="-26" y="-14" weight="4" height="4" playerCollision="1" type="diamond_for_fire"/>
+       <Diamond x="-42" y="0" weight="4" height="4" playerCollision="0" type="diamond_for_water"/>
+       <Diamond x="-8" y="8" weight="4" height="4" playerCollision="1" type="diamond_for_fire"/>
+       <Diamond x="0" y="8" weight="4" height="4" playerCollision="0" type="diamond_for_water"/>
+       <Diamond x="14" y="26" weight="4" height="4" playerCollision="1" type="diamond_for_fire"/>
+       <Diamond x="-14" y="26" weight="4" height="4" playerCollision="0" type="diamond_for_water"/>
+       <Diamond x="-9" y="26" weight="4" height="4" playerCollision="1" type="diamond_for_fire"/>
+       <Diamond x="-30" y="26" weight="4" height="4" playerCollision="0" type="diamond_for_water"/>
+       <Diamond x="-36" y="26" weight="4" height="4" playerCollision="1" type="diamond_for_fire"/>
+
+       <!-- Particles -->
+       <Particle x="24" y ="-24.5" type="particle"/>
+
+       <!-- Characters -->
+       <Character x="-43" y="-44" type="water_character" weight="8" height="8"/>
+       <Character x="-38" y="-44" type="fire_character" weight="8" height="8"/>
+
+</Level>

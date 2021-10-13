@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/goodfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=2]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1.0
+margin_top = -1.75
+margin_right = 161.0
+margin_bottom = 130.25
+custom_fonts/font = ExtResource( 1 )
+text = "TIENES 12 SEGUNDOS
+
+Consigue Todos los Cubos Azules
+
+FLECHAS DIRECCIONALES - Moverse/Girar
+Z - Saltar
+X - Fijar/Usar Punto de Teletransportacion
+
+~ Presiona Z para Comenzar ~"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

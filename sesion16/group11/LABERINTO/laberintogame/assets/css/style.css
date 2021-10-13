@@ -1,0 +1,53 @@
+body {
+	margin: 0;
+}
+
+#canvasContainer {
+	position: relative;
+}
+
+/* JOYPAD */
+#joypad {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 145px;
+}
+
+#joypad .top {
+	text-align: center;
+	width: inherit;
+}
+
+#joypad .bottom {
+	width: inherit;
+}
+
+
+/* circle*/
+#circles{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 245px;
+}
+
+#circles .top {
+	text-align: center;
+	width: inherit;
+}
+
+#circles.bottom {
+	width: inherit;
+}
+
+#countdown{
+	position: absolute;
+	bottom: 0;
+	left: 245px;
+	color: rosybrown;
+	padding: 15px;
+	font-family: fantasy;
+	font-size: 40px;
+}
+

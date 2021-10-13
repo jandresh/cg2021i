@@ -1,0 +1,13 @@
+{
+    "name": "8.5.MaterialAnd_Specularity",
+    "version": "1.0.0",
+    "main": "path/to/main.css",
+    "ignore": [
+        ".jshintrc",
+        "**/*.txt"
+    ],
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+}

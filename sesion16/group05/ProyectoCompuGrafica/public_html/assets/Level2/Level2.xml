@@ -1,0 +1,150 @@
+<MyGameLevel>
+    <!-- Level 2 scene file -->
+
+    <!--  *** be careful!! comma (,) is not a supported syntax!!  -->
+    <!--  make sure there are no comma in between attributes -->
+    <!--  e.g., do NOT do:  PosX="20", PosY="30" -->
+    <!--  notice the "comma" between PosX and PosY: Syntax error! -->
+  
+    <!-- cameras -->
+    <!-- WC for level 2 is -->
+    <!-- Viewport: x, y, w, h -->
+    <Camera CenterX="20" CenterY="12" Width="41" 
+            Viewport="0 0 1280 720"   
+            BgColor="0 0 1 1.0"
+    />    
+	
+    <Background PosX="0" PosY="0" Width="10" Height="10" ZPos="-20" ParallaxDepth="100" 
+                    LightIndices="2"
+                    ReceiveShadow="false"
+                    Texture="bg.png" NormalMap="bg_normal.png" />
+    
+    <Background PosX="0" PosY="0" Width="10" Height="10" ZPos="-1" ParallaxDepth="10" 
+                LightIndices="-1"
+                ReceiveShadow="true"
+                Texture="bgLayer.png" NormalMap="bgLayer_normal.png" />
+              
+              
+    <!-- Platforms -->
+    <Platform PosX="0" PosY="0" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="10" PosY="0" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="20" PosY="0" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="30" PosY="0" Velocity="0 0 0" MovementRange="0" />
+    
+
+    <Platform PosX="2" PosY="5" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="28" PosY="5" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="10" PosY="10" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="20" PosY="10" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="10" PosY="15" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="22" PosY="15" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="28" PosY="20" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="15" PosY="25" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="2" PosY="25" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="15" PosY="30" Velocity="1 0 0" MovementRange="4" />
+    <Platform PosX="2" PosY="35" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="14" PosY="40" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="2" PosY="45" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="28" PosY="50" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="14" PosY="50" Velocity="0 0 0" MovementRange="0" />
+    <Platform PosX="15" PosY="55" Velocity="1 0 0" MovementRange="8" />
+    
+    <!-- Walls -->
+    <Wall PosX="-4" PosY="2.5" />
+    <Wall PosX="-4" PosY="7.5" />
+    <Wall PosX="-4" PosY="12.5" />
+    <Wall PosX="-4" PosY="17.5" />
+    <Wall PosX="-4" PosY="22.5" />
+    <Wall PosX="-4" PosY="27.5" />
+    <Wall PosX="-4" PosY="32.5" />
+    <Wall PosX="-4" PosY="37.5" />
+    <Wall PosX="-4" PosY="42.5" />
+    <Wall PosX="-4" PosY="47.5" />
+    <Wall PosX="-4" PosY="52.5" />
+    <Wall PosX="-4" PosY="57.5" />
+    
+    <Wall PosX="34" PosY="2.5" />
+    <Wall PosX="34" PosY="7.5" />
+    <Wall PosX="34" PosY="12.5" />
+    <Wall PosX="34" PosY="17.5" />
+    <Wall PosX="34" PosY="22.5" />
+    <Wall PosX="34" PosY="27.5" />
+    <Wall PosX="34" PosY="32.5" />
+    <Wall PosX="34" PosY="37.5" />
+    <Wall PosX="34" PosY="42.5" />
+    <Wall PosX="34" PosY="47.5" />
+    <Wall PosX="34" PosY="52.5" />
+    <Wall PosX="34" PosY="57.5" />
+    <Wall PosX="31" PosY="59.5" />
+    <Wall PosX="26" PosY="59.5" />
+    <Wall PosX="-1" PosY="59.5" />
+    <Wall PosX="4" PosY="59.5" />
+    
+    <!--<Boss PosX="40" PosY="9" Velocity="1 0 0" MovementRange="2" Type="0"/>-->
+    <!-- Doors -->
+    <Door PosX="15" PosY="59.5" />
+
+        <!-- Buttons -->
+    <Button PosX="10" PosY="16.5" Type="0"/>
+    <Button PosX="2" PosY="26.5" Type="0"/>
+    <Button PosX="28" PosY="51.5" Type="0"/>
+    
+    <!-- Minions -->
+     <!-- minion type: 0=>shooter, 1->brain, 2=>beetle -->
+    <Minion PosX="2" PosY="37" Width="2" Height="1.6" Velocity="1 0 0" MovementRange="5" Type="0"/>
+    <Minion PosX="32" PosY="56" Width="2" Height="1.6" Velocity="0 0 0" MovementRange="0" Type="1"/>
+    <Minion PosX="15" PosY="12" Width="2" Height="1.6" Velocity="1 0 0" MovementRange="8" Type="0"/>
+    <Minion PosX="50" PosY="5" Width="2" Height="1.6" Velocity="0 1 0"  MovementRange="3" Type="0"/>
+    
+       
+    <!-- next level -->
+    <NextLevel Next="Level1">
+        <!-- a fold assets/Level1 must exist
+             a file assets/Level1/Level1.xml must exist!
+             -> GameLevel.js: initialize() makes these assumptions
+        -->
+   
+        <!-- Lights -->
+        <!-- starts from index = 0 -->
+        <!-- light type: 0=>Point, 1->Directional, 2=>Spot -->
+<Light 
+            Type="1" 
+            Color="0.3 0.3 1 1" 
+            Pos="0 0 0"
+            Dir="-1 -1 -2" 
+            Near="1"
+            Far="1"
+            Inner="0"
+            Outter="0"
+            DropOff="1"
+            Intensity="1" 
+            CastShadow="false"
+        />
+        <Light 
+            Type="1" 
+            Color="0.1 0.1 0.1 0.5" 
+            Pos="0 0 0"
+            Dir="-0.3 -0.3 -7" 
+            Near="1"
+            Far="1"
+            Inner="0"
+            Outter="0"
+            DropOff="1"
+            Intensity="10" 
+            CastShadow="false"
+        />
+        <!-- index 2 is hero light! -->
+        <Light 
+            Type="0" 
+            Color="1 1 1 1" 
+            Pos="0 0 3"
+            Dir="0 0 0" 
+            Near="5"
+            Far="8"
+            Inner="5"
+            Outter="10"
+            DropOff="1"
+            Intensity="2" 
+            CastShadow="true" 
+        />
+</MyGameLevel>

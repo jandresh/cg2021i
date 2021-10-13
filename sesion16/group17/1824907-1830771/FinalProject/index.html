@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <title>Computacion grafica</title>
+</head>
+<!--Use embedded shader code for now, in order to remove async loading complexity.-->
+
+<body style="background-color:red" onload="
+        var myGame = new OpeningScene();
+        gEngine.Core.initializeEngineCore('GLCanvas', myGame);
+            ">
+    <h1> Proyecto final </h1>
+    <p>Kevin Trujillo - 1830771</p>
+    <p>Matteo Zuluaga - 1824907</p>
+            
+    <h2> Controls </h2>
+    <p><b>W:</b> El heroe se desplaza hacia arriba</p>
+    <p><b>S:</b> El heroe se desplaza hacia abajo</p>
+    <p><b>D:</b> Sube la velocidad</p>
+    <p><b>A:</b> Baja la velocidad</p>
+ 
+    <!-- the following says there are javascript source code contained in 
+         the external source files
+    -->
+    <!-- external library -->
+    <script type="text/javascript" src="src/lib/gl-matrix.js"></script>
+     
+    <!-- Engine code -->
+        <!-- Core of Engine --> 
+            <script type="text/javascript" src="src/Engine/Core/Engine_Core.js"></script>
+            <script type="text/javascript" src="src/Engine/Core/Engine_VertexBuffer.js"></script>
+            <script type="text/javascript" src="src/Engine/Core/Engine_GameLoop.js"></script>
+            <script type="text/javascript" src="src/Engine/Core/Engine_Input.js"></script>
+            <script type="text/javascript" src="src/Engine/Core/Engine_LayerManager.js"></script>
+            <!-- Resource support -->
+                <script type="text/javascript" src="src/Engine/Core/Resources/Engine_ResourceMap.js"></script>
+                <script type="text/javascript" src="src/Engine/Core/Resources/Engine_TextFileLoader.js"></script>
+                <script type="text/javascript" src="src/Engine/Core/Resources/Engine_DefaultResources.js"></script>
+                <script type="text/javascript" src="src/Engine/Core/Resources/Engine_AudioClips.js"></script>
+                <script type="text/javascript" src="src/Engine/Core/Resources/Engine_Textures.js"></script>
+                <script type="text/javascript" src="src/Engine/Core/Resources/Engine_Fonts.js"></script>
+        <script type="text/javascript" src="src/Engine/Scene.js"></script>
+        <script type="text/javascript" src="src/Engine/Material.js"></script>
+        <!--Lights -->
+            <script type="text/javascript" src="src/Engine/Lights/Light.js"></script>
+            <script type="text/javascript" src="src/Engine/Lights/LightSet.js"></script>
+        <!-- Utilities -->
+            <script type="text/javascript" src="src/Engine/Utils/Transform.js"></script>
+            <script type="text/javascript" src="src/Engine/Utils/BoundingBox.js"></script>
+            <script type="text/javascript" src="src/Engine/Utils/Interpolate.js"></script>
+            <script type="text/javascript" src="src/Engine/Utils/InterpolateVec2.js"></script>
+            <script type="text/javascript" src="src/Engine/Utils/ShakePosition.js"></script>
+            <script type="text/javascript" src="src/Engine/Utils/CollisionInfo.js"></script>
+        <!-- Renderables -->
+            <script type="text/javascript" src="src/Engine/Renderables/Renderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/TextureRenderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/TextureRenderable_PixelCollision.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/SpriteRenderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/SpriteRenderable_PixelCollision.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/SpriteAnimateRenderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/FontRenderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/LineRenderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/LightRenderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/IllumRenderable.js"></script>
+            <script type="text/javascript" src="src/Engine/Renderables/ParticleRenderable.js"></script>
+        <!-- GameObject -->
+            <script type="text/javascript" src="src/Engine/GameObjects/GameObject.js"></script>
+            <script type="text/javascript" src="src/Engine/GameObjects/GameObject_PixelCollision.js"></script>
+            <script type="text/javascript" src="src/Engine/GameObjects/GameObjectSet.js"></script>
+            <script type="text/javascript" src="src/Engine/GameObjects/TiledGameObject.js"></script>
+            <script type="text/javascript" src="src/Engine/GameObjects/ParallaxGameObject.js"></script>
+        <!-- Shaders -->
+            <script type="text/javascript" src="src/Engine/Shaders/SimpleShader.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/TextureShader.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/SpriteShader.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/LineShader.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/LightShader.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/ShaderLightAtIndex.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/IllumShader.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/ShaderMaterial.js"></script>
+            <script type="text/javascript" src="src/Engine/Shaders/ShadowCasterShader.js"></script>
+        <!-- Camera -->
+            <script type="text/javascript" src="src/Engine/Cameras/Camera.js"></script>
+            <script type="text/javascript" src="src/Engine/Cameras/Camera_Manipulation.js"></script>
+            <script type="text/javascript" src="src/Engine/Cameras/Camera_Input.js"></script>
+            <script type="text/javascript" src="src/Engine/Cameras/Camera_Xform.js"></script>
+            <script type="text/javascript" src="src/Engine/Cameras/CameraState.js"></script>
+            <script type="text/javascript" src="src/Engine/Cameras/CameraShake.js"></script>
+            
+    <!-- Client game code -->
+        <script type="text/javascript" src="src/MyGame/MyGame.js"></script>
+        <script type="text/javascript" src="src/MyGame/MyGame_Initialize.js"></script>
+        <script type="text/javascript" src="src/MyGame/MyGame_Update.js"></script>
+        <script type="text/javascript" src="src/MyGame/MyGame_Lights.js"></script>
+        <script type="text/javascript" src="src/MyGame/MyGame_LightControl.js"></script>
+        <script type="text/javascript" src="src/MyGame/MyGame_Generator.js"></script>        
+        <script type="text/javascript" src="src/MyGame/GameOverScene.js"></script>
+        <script type="text/javascript" src="src/MyGame/OpeningScene.js"></script>
+        
+        <!-- Objects -->
+            <script type="text/javascript" src="src/MyGame/Objects/Hero.js"></script>
+            <script type="text/javascript" src="src/MyGame/Objects/Minion.js"></script>
+            <script type="text/javascript" src="src/MyGame/Objects/Wall.js"></script>
+            <script type="text/javascript" src="src/MyGame/Objects/Rock.js"></script>
+            <script type="text/javascript" src="src/MyGame/Objects/HealLintern.js"></script>            
+            <script type="text/javascript" src="src/MyGame/Objects/HealthBar.js"></script>
+    
+    <canvas id="GLCanvas" width="900" height="600">
+        <!-- GLCanvas is the area we will draw in: a 640x480 area. -->
+        Your browser does not support the HTML5 canvas.
+        <!-- this message will show only if WebGL clearing failed -->
+    </canvas>
+</body>
+
+<style>
+    canvas {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 1200px;
+    }
+</style>
