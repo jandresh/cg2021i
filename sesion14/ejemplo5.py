@@ -7,7 +7,7 @@ from OpenGL.GL import *
 
 def draw():
     glClear(GL_COLOR_BUFFER_BIT)
-    glutWireTeapot(0.5)
+    glutSolidTeapot(0.5)
     glFlush()
 
 
